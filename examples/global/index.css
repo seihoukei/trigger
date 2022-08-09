@@ -1,0 +1,41 @@
+html, body {
+    width :100vw;
+    height : 100vh;
+    padding : 0;
+    margin: 0;
+    background: #000000;
+    overflow: hidden;
+}
+
+div#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height : 100%;
+    width : 100%;
+}
+
+div.bar {
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    width : 300px;
+    height : 30px;
+    margin : 5px;
+    background:
+        linear-gradient(to top, #00000000 10%, #336699 10%, #5588AA 50%, #336699 90%, #00000000 90%),
+        linear-gradient(to top, #444444 10%, #111111 10%, #222222 50%, #111111 90%, #444444 90%);
+    background-position-x: calc(-300px + var(--progress) * 3px), 0;
+    background-repeat: no-repeat;
+    color : white;
+}
+
+pre.results {
+    color : #CCCCCC;
+    height : 120px;
+    width : 300px;
+    padding : 3px;
+    background:
+            linear-gradient(to top, #444444 3px, #111111 3px, #222222 50%, #111111 123px, #444444 -123px);
+}
