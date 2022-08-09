@@ -34,7 +34,7 @@ Event trigger:
 Trigger(eventKey, [...eventArguments])
 ```
 
-Any valid `Map` key can be eventKey. When event is triggered, callback is called with handler arguments follower by event arguments:
+Any valid `Map` key can be `eventKey`. When event is triggered, `callback` is called with handler arguments followed by event arguments:
 ```js
 callback(...handlerArguments, ...eventArguments)
 ```
@@ -74,6 +74,7 @@ Trigger('log-event', 4)
 ```
 
 result is going to be similar to:
+
 ```js
 //Trigger('log-event', 1)
 log('first', 1)
@@ -163,14 +164,14 @@ More elaborate example in `examples/ify`
 ### Advanced: Trigger modes
 
 There are 4 triggering modes that affect sequencing of concurrent events:
-- NOW - callback is called immediately
-- NEXT - callback is called immediately unless another trigger callback is already executing, in which case current callback will be placed next in queue
-- QUEUE - callback is called immediately unless another trigger callback is already executing, in which case current callback will be placed in the end of callback queue
-- ASYNC - callback is set on zero-millisecond timeout to execute as soon as JS engine is free. This ensures callback does not interrupt executing code.
+- `NOW` - callback is called immediately
+- `NEXT` - callback is called immediately unless another trigger callback is already executing, in which case current callback will be placed next in queue
+- `QUEUE` - callback is called immediately unless another trigger callback is already executing, in which case current callback will be placed in the end of callback queue
+- `ASYNC` - callback is set on zero-millisecond timeout to execute as soon as JS engine is free. This ensures callback does not interrupt executing code.
 
 Default mode is NOW, as mixture of concurrent triggers can cause a confusing mess otherwise, but in some cases you need different behavior.
 
 There are several methods to control modes:
-- Set `Trigger.mode` to and of `Trigger.MODES.<name>` constants
+- Set `Trigger.mode` to one of `Trigger.MODES.<name>` constants
 - Use specific handler's `setMode` to set its execution mode
 - Use special functions `Trigger.now`, `Trigger.next`, `Trigger.queue` and `Trigger.async` to trigger an event instead of plain `Trigger`, which uses current `Trigger.mode`.
