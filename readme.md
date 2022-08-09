@@ -26,12 +26,12 @@ Listener:
 ```js
 Trigger.on(eventKey, callback, [...handlerArguments])
 //or to execute just once:
-Trigger.once(eventKey, callback, [...eventArguments])
+Trigger.once(eventKey, callback, [...handlerArguments])
 ```
 
 Event trigger: 
 ```js
-Trigger(eventKey, ...arguments)
+Trigger(eventKey, [...eventArguments])
 ```
 
 Any valid `Map` key can be eventKey. When event is triggered, callback is called with handler arguments follower by event arguments:
