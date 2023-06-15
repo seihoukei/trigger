@@ -15,10 +15,6 @@ There are two types of handlers:
 - *Normal* - executes with given arguments and might return a value. Called with `handler(...handlerArguments, ...triggerArguments)`
 - *Modifier* - executed with input value in addition to arguments and returns modified value. Called with `handler(input, ...handlerArguments, ...triggerArguments)`
 
-### Vanilla way
-
-Unlike svelte-specific triggers, these can be set up anywhere, but need to be canceled manually.
-
 Normal handlers are set up with `Trigger.createHandler(trigger, handler, ...args)` or `Trigger.on(trigger, handler, ...args)`
 
 Modifying handlers are set up with `Trigger.createModifier(trigger, handler, ...args)`
